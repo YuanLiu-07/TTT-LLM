@@ -1,6 +1,6 @@
 {
-  "name": "tic-tac-toe-llm",
+  "name": "ttt-llm",
   "private": true,
   "version": "1.0.0",
-  "description": "井字棋 vs LLM（课程作业）"
+  "description": "Tic-tac-toe vs LLM (Vercel serverless API)"
 }

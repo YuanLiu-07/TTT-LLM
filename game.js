@@ -3,7 +3,6 @@ const statusEl = document.getElementById("status");
 const resetBtn = document.getElementById("reset");
 const errorEl = document.getElementById("error");
 
-/** @type {(null|'X'|'O')[]} */
 let board = Array(9).fill(null);
 let locked = false;
 
@@ -74,21 +73,21 @@ function render() {
 function updateStatus() {
   const w = winner();
   if (w === "X") {
-    statusEl.textContent = "你赢了！";
+    statusEl.textContent = "You win.";
     locked = true;
   } else if (w === "O") {
-    statusEl.textContent = "AI（O）赢了";
+    statusEl.textContent = "Opponent (O) wins.";
     locked = true;
   } else if (full()) {
-    statusEl.textContent = "平局";
+    statusEl.textContent = "Draw.";
     locked = true;
   } else {
     const xCount = board.filter((c) => c === "X").length;
     const oCount = board.filter((c) => c === "O").length;
     if (xCount === oCount) {
-      statusEl.textContent = "轮到你（X）";
+      statusEl.textContent = "Your turn (X)";
     } else {
-      statusEl.textContent = "AI 思考中…";
+      statusEl.textContent = "Opponent is thinking…";
     }
   }
 }
@@ -107,7 +106,7 @@ async function fetchAiMove() {
     throw new Error(data.error || `HTTP ${res.status}`);
   }
   if (typeof data.position !== "number") {
-    throw new Error("服务器返回格式错误");
+    throw new Error("Invalid response from server.");
   }
   return data.position;
 }
@@ -135,7 +134,7 @@ async function onCell(i) {
   try {
     const pos = await fetchAiMove();
     if (board[pos] !== null) {
-      throw new Error("AI 落在已有格子上");
+      throw new Error("Opponent chose an occupied cell.");
     }
     board[pos] = "O";
   } catch (e) {

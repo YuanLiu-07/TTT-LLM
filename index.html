@@ -1,22 +1,23 @@
 <!DOCTYPE html>
-<html lang="zh-Hans">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>井字棋 vs AI（LLM）</title>
+    <title>Tic-Tac-Toe vs LLM</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <main class="wrap">
-      <h1>井字棋 · 你是 X，对手是 LLM（O）</h1>
+      <p class="byline">Yuan Liu · ID 1306116</p>
+      <h1>Tic-Tac-Toe — You are X, opponent is O (LLM)</h1>
       <p class="hint">
-        本地开发请使用 <code>vercel dev</code>，线上需在 Vercel 配置
-        <code>OPENAI_API_KEY</code>。
+        Local dev: <code>vercel dev</code>. Production: set
+        <code>OPENAI_API_KEY</code> in Vercel project settings.
       </p>
-      <div id="status" class="status">轮到你（X）</div>
-      <div id="board" class="board" aria-label="井字棋棋盘"></div>
+      <div id="status" class="status">Your turn (X)</div>
+      <div id="board" class="board" aria-label="Tic-tac-toe board"></div>
       <div class="actions">
-        <button type="button" id="reset">重新开始</button>
+        <button type="button" id="reset">New game</button>
       </div>
       <p id="error" class="error" role="alert" hidden></p>
     </main>
