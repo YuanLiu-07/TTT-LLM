@@ -1,0 +1,125 @@
+:root {
+  --bg: #0f1419;
+  --panel: #1a2332;
+  --text: #e7ecf3;
+  --muted: #8b98a8;
+  --accent: #5b9fd4;
+  --cell: #243044;
+  --x: #7dd3c0;
+  --o: #f0b429;
+  --error: #f07178;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    "PingFang SC", "Microsoft YaHei", sans-serif;
+  background: radial-gradient(ellipse at top, #1a2744 0%, var(--bg) 55%);
+  color: var(--text);
+}
+
+.wrap {
+  max-width: 420px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem;
+}
+
+h1 {
+  font-size: 1.35rem;
+  font-weight: 600;
+  margin: 0 0 0.75rem;
+  letter-spacing: 0.02em;
+}
+
+.hint {
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.5;
+  margin: 0 0 1.25rem;
+}
+
+.hint code {
+  font-size: 0.8em;
+  background: var(--panel);
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+}
+
+.status {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  min-height: 1.5em;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  aspect-ratio: 1;
+  max-width: 360px;
+  margin: 0 auto 1.25rem;
+}
+
+.cell {
+  border: none;
+  border-radius: 12px;
+  background: var(--cell);
+  color: var(--text);
+  font-size: clamp(2rem, 10vw, 2.75rem);
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.12s ease, background 0.12s ease;
+}
+
+.cell:hover:not(:disabled) {
+  background: #2d3d56;
+  transform: scale(1.02);
+}
+
+.cell:disabled {
+  cursor: default;
+  opacity: 0.95;
+}
+
+.cell.x {
+  color: var(--x);
+}
+
+.cell.o {
+  color: var(--o);
+}
+
+.actions {
+  text-align: center;
+}
+
+#reset {
+  appearance: none;
+  border: 1px solid #3d4f6a;
+  background: var(--panel);
+  color: var(--text);
+  padding: 0.55rem 1.25rem;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+#reset:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.error {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  border-radius: 8px;
+  background: rgba(240, 113, 120, 0.12);
+  color: var(--error);
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
